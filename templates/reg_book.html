@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/base.css' %}">
+{% endblock %}
+{% block title %}
+本の登録
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+    <h1>本の登録</h1>
+    <div class="main_contents">
+        <p>{{ title.Book_ISBN.Title_name }} 登録しました。</p>
+    </div>
+</div>
+{% endblock %}

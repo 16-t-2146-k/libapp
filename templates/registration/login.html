@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/login.css' %}">
+    <meta charset="UTF-8">
+
+    <title>
+    </title>
+
+    </head>
+
+    <body>
+        <div class='main'>
+            <div class='help_text'>
+                {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+                {% if next %}
+                    {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                    {% else %}
+                    <p>Please login to see this page.</p>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <form class='login_form' method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <h1>Login</h1>
+            {{ form.username.label_tag }}<br>
+            {{ form.username }}<br>
+
+            {{ form.password.label_tag }}<br>
+            {{ form.password }}<br>
+
+            <input id='login' type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+    </body>
+</html>

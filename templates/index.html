@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/index.css' %}">
+{% endblock %}
+
+{% block title %}
+目次
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+
+    <h1>機能一覧</h1>
+    <div class="main_contents">
+        <a class='btn' href="{% url 'myapp:ls_title' %}">タイトル一覧</a><br>
+        <a class='btn' href="{% url 'myapp:ls_book' %}">本の一覧</a><br>
+		<a class='btn' href="{% url 'myapp:lend_book' %}">本の貸し出し</a><br>
+		<a class='btn' href="{% url 'myapp:ls_lend' %}">未返却一覧</a><br>
+        {% if user.is_staff %}
+            <a class='btn' href="{% url 'myapp:reg_title' %}">タイトル登録</a><br>
+            <a class='btn' href="{% url 'myapp:list_user' %}">ユーザー一覧</a><br>
+            <a class='btn' href="{% url 'myapp:return_book' %}">本の返却</a><br>
+            <a class='btn' href="{% url 'accounts:signup' %}">ユーザー登録</a><br>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

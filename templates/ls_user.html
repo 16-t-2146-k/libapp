@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/base.css' %}">
+{% endblock %}
+{% block title %}
+ユーザー一覧
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+	<h1>一覧</h1>
+	<div class="main_contents">
+		<table>
+		<tr>
+			<th>番号</th>
+			<th>ユーザーID</th>
+			<th>名前</th>
+			<th>Staff</th>
+		</tr>
+		{% for dat in user_qs %}
+		<tr>
+			<td>{{ dat.id }}</td>
+			<td>{{ dat.username }}</td>
+			<td>{{ dat.last_name }} { dat.first_name }}</td>
+			<td>{{ dat.is_staff }}</td>
+		</tr>
+
+		{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}

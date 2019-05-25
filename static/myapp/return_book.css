@@ -1,0 +1,134 @@
+table{
+  width: 90%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+  width: 15%;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th{
+  text-align: center;
+  color:black;
+  background-color: rgb(252, 247, 247);
+  box-shadow: 0px 1px 1px;
+  width: 25%;
+  padding: 10px 0;
+}
+
+
+table td{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td:first-child{
+    width: 15%;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+#submit-form{
+    height:180px;
+    width:85%;
+    box-shadow:1px 1px 1px;
+    padding:20px 10px 10px 10px;
+    font-size:20px;
+    background-color: rgb(252, 247, 247);
+    text-align: center;
+    position: relative;
+    top:0px;
+    left:47%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+
+#submit-form label{
+    text-shadow: 2px 1px 1px rgb(206, 205, 205);
+    width:150px;
+    margin-bottom:15px;
+    margin-left:15px;
+    font-size:25px;
+}
+
+#submit-form #adjust{
+    position: relative;
+    left:-12px;
+}
+
+#id_Lend_ID{
+    text-align: center;
+    height:25px;
+    width:50%;
+    border-radius: 5px;
+    margin-top:5px;
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+#id_Review_score{
+    height:30px;
+    width:50%;
+    border-radius: 5px;
+    margin-top:5px;
+    margin-bottom:25px;
+    font-size:20px;
+    border-style: inset;
+    border-width: 1.5px;
+    border-color: rgb(240, 240, 240);
+}
+
+#id_Lend_ID:hover, #id_Review_score:hover{
+    width:55%;
+    border-color:rgb(247, 191, 158);
+}
+
+#id_Lend_ID:focus, #id_Review_score:focus{
+    width:55%;
+    border-color:rgb(247, 191, 158);
+}
+
+#send{
+    font-size:16px;
+    padding: 10px 20px;
+    border-style: solid;
+    box-shadow: 1px 1px 1px;
+    border-color:rgb(247, 191, 158);
+    border-radius: 5px;
+}
+
+#send:hover{
+    background-color: rgb(247, 191, 158);
+    color:white;
+    box-shadow: 1px 1px 1px black;
+}
+
+#message{
+    position: relative;
+    top:10px;
+    left:50%;
+    transform:translateX(-11%);
+    color:rgb(226, 95, 95);
+}

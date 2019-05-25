@@ -1,0 +1,65 @@
+.main_contents{
+    height:280px;
+    width:85%;
+    box-shadow:1px 1px 1px;
+    padding:20px 10px 10px 10px;
+    font-size:20px;
+    background-color: rgb(252, 247, 247);
+    text-align: center;
+}
+
+
+.main_contents label{
+    text-shadow: 2px 1px 1px rgb(206, 205, 205);
+    width:150px;
+    margin-bottom:15px;
+    margin-left:15px;
+    font-size:25px;
+}
+
+#id_Title_name{
+    text-align: center;
+    height:25px;
+    width:70%;
+    border-radius: 5px;
+    margin-top:5px;
+    margin-bottom:20px;
+    font-size:20px;
+    outline: 0;
+}
+
+#id_Title_ISBN{
+    text-align: center;
+    height:25px;
+    width:70%;
+    border-radius: 5px;
+    margin-top:5px;
+    margin-bottom:25px;
+    font-size:20px;
+    outline:0;
+}
+
+#id_Title_name:hover, #id_Title_ISBN:hover{
+    width:80%;
+    border-color:rgb(247, 191, 158);
+}
+
+#id_Title_name:focus, #id_Title_ISBN:focus{
+    width:80%;
+    border-color:rgb(247, 191, 158);
+}
+
+#send{
+    font-size:16px;
+    padding: 10px 20px;
+    border-style: solid;
+    box-shadow: 1px 1px 1px;
+    border-color:rgb(247, 191, 158);
+    border-radius: 5px;
+}
+
+#send:hover{
+    background-color: rgb(247, 191, 158);
+    color:white;
+    box-shadow: 1px 1px 1px black;
+}

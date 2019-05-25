@@ -1,0 +1,38 @@
+.helptext, .main_contents li{
+    color:black;
+    font-size:10px;
+}
+
+.main_contents{
+    height:400px;
+    width:85%;
+    box-shadow:1px 1px 1px;
+    padding:20px 10px 10px 10px;
+    font-size:15px;
+    background-color: rgb(252, 247, 247);
+    position: relative;
+    top:0px;
+    left:47%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+button[type='submit']{
+    position: relative;
+    top:10px;
+    left:47%;
+    transform: translateX(-50%);
+    border:solid;
+    border-width:1px;
+    box-shadow: 1px 1px 1px;
+    border-color:rgb(247, 191, 158);
+    border-radius: 5px;
+    height:25px;
+    width:80px;
+}
+
+button[type='submit']:hover{
+    background-color: rgb(247, 191, 158);
+    color:white;
+    box-shadow: 1px 1px 1px black;
+}

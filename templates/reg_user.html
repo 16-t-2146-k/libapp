@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/base.css' %}">
+{% endblock %}
+{% block title %}
+ユーザーの登録
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+	<h1>ユーザーの登録</h1>
+	<div class="main_contents">
+		<h2>登録</h2>
+		<form action="" method="post">
+			{{ form.errors.User_name }}
+			<label >{{ form.User_name.label }} {{ form.User_name }}</label><br>
+			{{ form.errors.User_ID }}
+			<label >{{ form.User_ID.label }} {{ form.User_ID }}</label><br>
+			{{ form.errors.Dept_code }}
+			<label >{{ form.Dept_code.label }} {{ form.Dept_code }}</label><br>
+			<input type="submit" value="送信">
+			{% csrf_token %}
+		</form>
+		<hr>
+		<h2>一覧</h2>
+		<table>
+		<tr>
+			<td>番号</td>
+			<td>ユーザー名</td>
+			<td>is_staff</td>
+		</tr>
+		{% for dat in user_qs %}
+		<tr>
+			<td>{{ dat.id }}</td>
+			<td>{{ dat.username }}</td>
+			<td>{{ dat.is_staff }}</td>
+		</tr>
+
+		{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}

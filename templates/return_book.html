@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/return_book.css' %}">
+{% endblock %}
+
+{% block title %}
+本の返却
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+    <h1>本の返却</h1>
+    <div class="main_contents">
+        <div id='submit-form'>
+            <form method="post" action="">
+                {% csrf_token %}
+                <!-- <h3>ユーザーID </h3> -->
+                <!-- <input type="text" name="userid_box" id="" required><br> -->
+                <label id='adjust'>貸出ID
+                <input type="text" name="lendid_box" id="id_Lend_ID" required></label><br>
+                <label >{{ form.Review_score.label }} {{ form.Review_score }}</label><br>
+                <input id='send' type="submit" value="返却">
+            </form>
+        </div><br>
+
+        <div id='message'>
+            {% if username %}
+                返却手続きが完了しました。<br>
+                ユーザー:{{ username }}<br>
+                タイトル:{{ title }}<br>
+            {% endif %}
+
+            {% if message %}
+                {{ message }}
+            {% endif %}
+        </div>
+
+        <h2>一覧</h2><hr>
+        <table>
+
+            <tr>
+                <th>番号</th>
+                <th>本</th>
+                <th>ユーザー名</th>
+                <th>貸し出し日時</th>
+            </tr>
+
+            {% for dat in lend_qs %}
+                <tr>
+                    <td>{{ dat.id }}</td>
+                    <td>{{ dat.Lend_book.Book_ISBN.Title_name }}</td>
+                    <td>{{ dat.Lend_user.username }}</td>
+                    <td>{{ dat.Lend_date }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

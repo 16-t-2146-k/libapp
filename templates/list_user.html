@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/list_user.css' %}">
+{% endblock %}
+
+{% block title %}
+ユーザーの一覧
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+    <h1>ユーザーの一覧</h1>
+    <div class="main_contents">
+        {{ message }}
+        <table>
+        <tr>
+            <th>番号</th>
+            <th>名前</th>
+            <th>ユーザー名</th>
+            <th>管理者</th>
+            <th></th>
+        </tr>
+        {% for dat in user_qs %}
+        <form  action="" method="POST">
+            <tr>
+                <td>{{ dat.id }}</td>
+                <td>{{ dat.last_name }} {{ dat.first_name }}</td>
+                <td>{{ dat.username }}</td>
+                <td>{{ dat.is_staff }}</td>
+                <td><button name='User_ID' value='{{ dat.id }}' type='submit'>削除</button></td>
+            </tr>
+            {% csrf_token %}
+        </form>
+
+
+        {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

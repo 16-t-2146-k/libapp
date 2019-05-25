@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/base.css' %}">
+{% block style %}
+{% endblock %}
+	<meta charset="UTF-8">
+	<title>
+		{%block title%}
+		{%endblock%}
+	</title>
+</head>
+<body>
+	<header>
+		<div id='header_title'>
+			<span id='title'>蔵書管理システム（ZKS)</span>
+			{% if user.username %}
+				<span id='now_login'>ログイン中:{{ user.username }}</span>
+			{% endif %}
+		</div>
+		<div id='header_index'>
+			<div class='index_contents'>
+				<label for='label1'>ページ一覧</label>
+				<input type="checkbox" id='label1'>
+				<div class='hidden_box'>
+					<li class='index_link'> <a href="{% url 'myapp:index' %}">ホーム</a><br> </li>
+					<li class='index_link'><a href="{% url 'myapp:ls_title' %}">タイトル一覧</a><br></li>
+					<li class='index_link'><a href="{% url 'myapp:ls_book' %}">本の一覧</a><br></li>
+					<li class='index_link'><a href="{% url 'myapp:lend_book' %}">本の貸し出し</a><br></li>
+					<li class='index_link'><a href="{% url 'myapp:ls_lend' %}">未返却一覧</a><br></li>
+					{% if user.is_staff %}
+						<li class='index_link'><a href="{% url 'myapp:reg_title' %}">タイトル登録</a><br></li>
+						<li class='index_link'><a href="{% url 'myapp:list_user' %}">ユーザー一覧</a><br></li>
+						<li class='index_link'><a href="{% url 'myapp:return_book' %}">本の返却</a><br></li>
+						<li class='index_link'><a href="{% url 'accounts:signup' %}">ユーザー登録</a><br></li>
+					{% endif %}
+				</div>
+			</div>
+			<div class='index_contents'>
+				{% if user.username %}
+					<div id='logout'><a href="{% url 'accounts:logout' %}">ログアウト</a></div>
+				{% else %}
+					<div id='login'><a href="{% url 'login' %}">ログイン</a></div>
+				{% endif %}
+			</div>
+		</div>
+	</header>
+{%block body%}
+{%endblock%}
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/ls_title.css' %}">
+{% endblock %}
+{% block title %}
+本の一覧
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+	<h1>タイトル一覧</h1>
+	<div class="main_contents">
+		<form action="" method="post">
+				<label ><input type="text" name="title" id=""></label>
+				<button value='検索' type='submit'>検索</button>
+				{% csrf_token %}
+		</form>
+		<br>
+		<form action="{% url 'myapp:reg_book' %}" name="ls" method="POST">
+			<table>
+			<tr>
+				<th>番号</th>
+				<th>タイトル</th>
+				<th>ISBN</th>
+				<th>評価</th>
+				{% if user.is_staff %}
+					<th></th>
+				{% endif %}
+			</tr>
+			{% for dat in title_qs %}
+			<tr>
+				<td>{{ dat.id }}</td>
+				<td>{{ dat.Title_name }}</td>
+				<td>{{ dat.Title_ISBN }}</td>
+				{% if dat.ave %}
+					<td>{{ dat.ave}}</td>
+				{% else %}
+					<td>評価なし</td>
+				{% endif %}
+				{% if user.is_staff %}
+					<td><button name='Title_ID' value='{{ dat.id }}' type='submit'>追加</button></td>
+				{% endif %}
+			</tr>
+
+			{% endfor %}
+			</table>
+			{% csrf_token %}
+		</form>
+	</div>
+</div>
+{% endblock %}

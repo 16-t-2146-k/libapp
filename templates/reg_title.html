@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/reg_title.css' %}">
+{% endblock %}
+{% block title %}
+タイトルの登録
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+	<h1>タイトルの登録</h1>
+	<div class="main_contents">
+		<form action="" method="post">
+
+			{% csrf_token %}
+			<div>
+				{{ form.errors.Title_name }}
+				{{ form.Title_name.label_tag }} <br>
+				{{ form.Title_name }}
+			</div>
+			<div>
+				{{ form.errors.Title_ISBN }}<br>
+				{{ form.Title_ISBN.label_tag }}<br>
+				{{ form.Title_ISBN }}
+			</div>
+			<div>
+				<input id='send' type="submit" value="送信">
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

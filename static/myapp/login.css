@@ -1,0 +1,88 @@
+html{
+    height:100%;
+}
+
+body{
+    height:100%;
+    margin:0px;
+    background-color: rgb(248, 247, 247);
+    padding-left:0px;
+    text-align: center;
+}
+
+.main{
+    height:100%;
+}
+
+h1{
+    text-transform: uppercase;
+    color:white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.help_text{
+    height:50px;
+    color:rgb(226, 95, 95);
+}
+
+.login_form{
+    padding:30px 50px 50px 50px;
+    position: relative;
+    width:300px;
+    top:5%;
+    left:50%;
+    transform: translate(-50%,0%);
+    background-color: rgb(168, 218, 238);
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px;
+    height:300px;
+}
+
+label{
+    padding:15px 10px;
+    width: 280px;
+    font-size:20px;
+    text-shadow:1px 1px 1px white;
+}
+
+#id_password{
+    height: 26px;
+    width: 150px;
+    text-align: center;
+    border-radius: 30px;
+    outline:0;
+    margin-bottom:30px;
+}
+
+#id_username{
+    height: 26px;
+    width: 150px;
+    text-align: center;
+    border-radius: 30px;
+    outline:0;
+    margin-bottom:20px;
+}
+
+#id_password:hover, #id_username:hover{
+    width: 200px;
+    border-color:rgb(213, 250, 145);
+}
+
+#login{
+    height: 26px;
+    width: 80px;
+    text-align: center;
+    border-radius: 30px;
+    outline:0;
+    margin-bottom:20px;
+    border-color:rgb(213, 250, 145);
+    box-shadow: 1px 1px 1px;
+    background-color: white;
+}
+
+#login:hover{
+    background-color: rgb(213, 250, 145);
+    color:white;
+    box-shadow: 1px 1px 1px black;
+}

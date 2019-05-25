@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/Lend_book.css' %}">
+{% endblock %}
+
+{% block title %}
+本の貸し出し
+{% endblock %}
+
+{% block body %}
+<div class='main'>
+     <h1>本の貸し出し</h1>
+    <div class="main_contents">
+        <h2>貸し出し</h2>
+        <div id='submit_form'>
+            <form action="" method="POST">
+                {{ form.errors.Book_ID }}
+                {% if user.is_staff %}
+                    <label id='adjust'>{{ form.User_ID.label }} {{ form.User_ID }}</label><br>
+                {% endif %}
+                <label >{{ form.Book_ID.label }} {{ form.Book_ID }}</label><br>
+                <input id='send' type="submit" value="送信">
+                {% csrf_token %}
+            </form>
+            {% if message %}
+                {{ message }}<br>
+
+            {% endif %}
+        </div>
+
+        <h2>一覧</h2>
+        <table class="lend">
+
+            <tr>
+                <th>番号</th>
+                <th>本のタイトル</th>
+                <th>ユーザー名</th>
+                <th>貸し出し日時</th>
+                <th>返却日時</th>
+            </tr>
+
+            {% for dat in lend_qs %}
+                <tr>
+                    {% if user.is_staff %}
+                        <td>{{ dat.id }}</td>
+                        <td>{{ dat.Lend_book.Book_ISBN.Title_name }}</td>
+                        <td>{{ dat.Lend_user.username }}</td>
+                        <td>{{ dat.Lend_date }}</td>
+                        {% if dat.Return_date %}
+                            <td>{{ dat.Return_date }}</td>
+                        {% else %}
+                            <td>未返却</td>
+                        {% endif %}
+                    {% else %}
+                        {% if dat.Lend_user.username == user.username %}
+                            <td>{{ dat.id }}</td>
+                            <td>{{ dat.Lend_book.Book_ISBN.Title_name }}</td>
+                            <td>{{ dat.Lend_user.username }}</td>
+                            <td>{{ dat.Lend_date }}</td>
+                            {% if dat.Return_date %}
+                                <td>{{ dat.Return_date }}</td>
+                            {% else %}
+                                <td>未返却</td>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+{% endblock %}

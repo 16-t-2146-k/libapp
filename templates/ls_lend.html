@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/ls_lend.css' %}">
+{% endblock %}
+
+{% block title %}
+未返却一覧
+{% endblock %}
+{% block body %}
+<div class='main'>
+    <h1>未返却一覧</h1>
+    <div class='main_contents'>
+        <h2>一覧</h2><hr>
+        <table>
+
+            <tr>
+                <th>番号</th>
+                <th>本</th>
+                <th>ユーザー名</th>
+                <th>貸し出し日時</th>
+            </tr>
+
+            {% for dat in lend_qs %}
+                <tr>
+                    <td>{{ dat.id }}</td>
+                    <td>{{ dat.Lend_book.Book_ISBN.Title_name }}</td>
+                    <td>{{ dat.Lend_user.username }}</td>
+                    <td>{{ dat.Lend_date }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+{% endblock %}
